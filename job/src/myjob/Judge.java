@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.Random;
 
 //기획
-//
+//  
 //판사
 //1) 판단
 //	성공 시 60%

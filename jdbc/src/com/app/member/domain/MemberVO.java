@@ -1,110 +1,106 @@
 package com.app.member.domain;
 
 import java.util.Objects;
-//모델 객체
-public class MemberVO {	
-	private Long id;
-	private String memberEmail;
-	private String memberPssword;
-	private String memberName;
-	private int memberAge;
-	private int memberGender;
-	private String createdDate;
-	private String updateDate;
-	
-	public MemberVO() {;}
 
-	public Long getId() {
-		return id;
-	}
+public class MemberVO {
+   private Long id;
+   private String memberEmail;
+   private String memberPassword;
+   private String memberName;
+   private int memberAge;
+   private int memberGender;
+   private String createdDate;
+   private String updatedDate;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+   public MemberVO() {
+      ;
+   }
 
-	public String getMemberEmail() {
-		return memberEmail;
-	}
+   public Long getId() {
+      return id;
+   }
 
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
-	}
+   public void setId(Long id) {
+      this.id = id;
+   }
 
-	public String getMemberPssword() {
-		return memberPssword;
-	}
+   public String getMemberEmail() {
+      return memberEmail;
+   }
 
-	public void setMemberPssword(String memberPssword) {
-		this.memberPssword = memberPssword;
-	}
+   public void setMemberEmail(String memberEmail) {
+      this.memberEmail = memberEmail;
+   }
 
-	public String getMemberName() {
-		return memberName;
-	}
+   public String getMemberPassword() {
+      return memberPassword;
+   }
 
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
-	}
+   public void setMemberPassword(String memberPassword) {
+      this.memberPassword = memberPassword;
+   }
 
-	public int getMemberAge() {
-		return memberAge;
-	}
+   public String getMemberName() {
+      return memberName;
+   }
 
-	public void setMemberAge(int memberAge) {
-		this.memberAge = memberAge;
-	}
+   public void setMemberName(String memberName) {
+      this.memberName = memberName;
+   }
 
-	public int isMemberGender() {
-		return memberGender;
-	}
+   public int getMemberAge() {
+      return memberAge;
+   }
 
-	public void setMemberGender(int memberGender) {
-		this.memberGender = memberGender;
-	}
+   public void setMemberAge(int memberAge) {
+      this.memberAge = memberAge;
+   }
 
-	public String getCreatedDate() {
-		return createdDate;
-	}
+   public int getMemberGender() {
+      return memberGender;
+   }
 
-	public void setCreatedDate(String createdDate) {
-		this.createdDate = createdDate;
-	}
+   public void setMemberGender(int memberGender) {
+      this.memberGender = memberGender;
+   }
 
-	public String getUpdateDate() {
-		return updateDate;
-	}
+   public String getCreatedDate() {
+      return createdDate;
+   }
 
-	public void setUpdateDate(String updateDate) {
-		this.updateDate = updateDate;
-	}
+   public void setCreatedDate(String createdDate) {
+      this.createdDate = createdDate;
+   }
 
-	@Override
-	public String toString() {
-		return "MemberVO [id=" + id + ", memberEmail=" + memberEmail + ", memberPssword=" + memberPssword
-				+ ", memberName=" + memberName + ", memberAge=" + memberAge + ", memberGender=" + memberGender
-				+ ", createdDate=" + createdDate + ", updateDate=" + updateDate + "]";
-	}
+   public String getUpdatedDate() {
+      return updatedDate;
+   }
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(createdDate, id, memberAge, memberEmail, memberGender, memberName, memberPssword,
-				updateDate);
-	}
+   public void setUpdatedDate(String updatedDate) {
+      this.updatedDate = updatedDate;
+   }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		MemberVO other = (MemberVO) obj;
-		return Objects.equals(createdDate, other.createdDate) && Objects.equals(id, other.id)
-				&& memberAge == other.memberAge && Objects.equals(memberEmail, other.memberEmail)
-				&& memberGender == other.memberGender && Objects.equals(memberName, other.memberName)
-				&& Objects.equals(memberPssword, other.memberPssword) && Objects.equals(updateDate, other.updateDate);
-	}
-	
-	
+   @Override
+   public String toString() {
+      return "MemberVO [id=" + id + ", memberEmail=" + memberEmail + ", memberPassword=" + memberPassword
+            + ", memberName=" + memberName + ", memberAge=" + memberAge + ", memberGender=" + memberGender
+            + ", createdDate=" + createdDate + ", updatedDate=" + updatedDate + "]";
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(id);
+   }
+
+   @Override
+   public boolean equals(Object obj) {
+      if (this == obj)
+         return true;
+      if (obj == null)
+         return false;
+      if (getClass() != obj.getClass())
+         return false;
+      MemberVO other = (MemberVO) obj;
+      return Objects.equals(id, other.id);
+   }
 }
