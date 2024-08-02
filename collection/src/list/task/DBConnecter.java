@@ -6,7 +6,6 @@ import list.task.food.Food;
 import list.task.fruit.Fruit;
 import list.task.product.Product;
 import list.task.user.User;
-import test111111.Hospital;
 
 public class DBConnecter {
 	
@@ -20,6 +19,4 @@ public class DBConnecter {
 	public static ArrayList<Food> foods = new ArrayList<Food>();
 	public static ArrayList<User> users = new ArrayList<User>();
 	public static ArrayList<Product> products = new ArrayList<Product>();
-	public static ArrayList<Hospital> hospitals = new ArrayList<Hospital>();
-	
 }
