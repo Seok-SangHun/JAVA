@@ -151,53 +151,54 @@ public class PostDAO {
 	   
 //	   전체 조회하기
 	   public ArrayList<PostVO> selectAll() {
-		   ArrayList<PostVO> posts = new ArrayList<PostVO>();
-		   PostVO postVO = null;
-		   String query = "SELECT ID, POST_TITLE, POST_CONTENT, "
-		   		+ "MEMBER_ID, CREATED_DATE, UPDATED_DATE "
-		   		+ "FROM TBL_POST ";
-		   
-		   try {
-			   connection = Configuration.getConnection();
-			   preparedStatement = connection.prepareStatement(query);
-			   
-			   resultSet = preparedStatement.executeQuery();
-			   
-			   if(resultSet.next()) {
-				   do {
-					   postVO = new PostVO();
-					   postVO.setId(resultSet.getLong("ID"));
-					   postVO.setPostTitle(resultSet.getString("POST_TITLE"));
-					   postVO.setPostContent(resultSet.getString("POST_CONTENT"));
-					   postVO.setMemberId(resultSet.getLong("MEMBER_ID"));
-					   postVO.setCreatedDate(resultSet.getString("CREATED_DATE"));
-					   postVO.setUpdatedDate(resultSet.getString("UPDATED_DATE"));
-					   
-					   posts.add(postVO);
-					   
-				   }while(resultSet.next());
-				   
-			   }
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(resultSet != null) {
-					resultSet.close();
-				}
-				if(preparedStatement != null) {
-					preparedStatement.close();
-				}
-				if(connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				throw new RuntimeException();
-			}
-		 }
-		   return posts;
-		   
-	   }
+		    ArrayList<PostVO> posts = new ArrayList<PostVO>();
+		    PostVO postVO = null;
+		    String query = "SELECT P.ID AS POST_ID, POST_TITLE, POST_CONTENT, "
+		                 + "P.MEMBER_ID, M.MEMBER_NAME, P.CREATED_DATE, P.UPDATED_DATE "
+		                 + "FROM TBL_MEMBER M JOIN TBL_POST P "
+		                 + "ON M.ID = P.MEMBER_ID";
+
+		    try {
+		        connection = Configuration.getConnection();
+		        preparedStatement = connection.prepareStatement(query);
+
+		        resultSet = preparedStatement.executeQuery();
+
+		        if(resultSet.next()) {
+		            do {
+		                postVO = new PostVO();
+		                postVO.setId(resultSet.getLong("POST_ID"));
+		                postVO.setPostTitle(resultSet.getString("POST_TITLE"));
+		                postVO.setPostContent(resultSet.getString("POST_CONTENT"));
+		                postVO.setMemberId(resultSet.getLong("MEMBER_ID"));					   
+		                postVO.setMemberName(resultSet.getString("MEMBER_NAME"));
+		                postVO.setCreatedDate(resultSet.getString("CREATED_DATE"));
+		                postVO.setUpdatedDate(resultSet.getString("UPDATED_DATE"));
+
+		                posts.add(postVO);
+
+		            } while(resultSet.next());
+		        }
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    } finally {
+		        try {
+		            if(resultSet != null) {
+		                resultSet.close();
+		            }
+		            if(preparedStatement != null) {
+		                preparedStatement.close();
+		            }
+		            if(connection != null) {
+		                connection.close();
+		            }
+		        } catch (SQLException e) {
+		            throw new RuntimeException(e);
+		        }
+		    }
+		    return posts;
+		}
+
 	   
 	   
 	   

@@ -1,4 +1,4 @@
-package com.app;
+package com.app.view;
 
 import java.util.ArrayList;
 
@@ -42,16 +42,17 @@ public class PostDAOTest {
 //        System.out.println("Post deleted successfully.");
 //
 //        // Retrieve all posts
-//        ArrayList<PostVO> allPosts = postDAO.selectAll();
-//        System.out.println("All Posts:");
-//        for (PostVO post : allPosts) {
-//            System.out.println("ID: " + post.getId());
-//            System.out.println("Title: " + post.getPostTitle());
-//            System.out.println("Content: " + post.getPostContent());
-//            System.out.println("Member ID: " + post.getMemberId());
-//            System.out.println("Created Date: " + post.getCreatedDate());
-//            System.out.println("Updated Date: " + post.getUpdatedDate());
-//            System.out.println("----------------------");
-//        }
+        ArrayList<PostVO> allPosts = postDAO.selectAll();
+        System.out.println("All Posts:");
+        for (PostVO post : allPosts) {
+            System.out.println("ID: " + post.getId());
+            System.out.println("Title: " + post.getPostTitle());
+            System.out.println("Content: " + post.getPostContent());
+            System.out.println("Member ID: " + post.getMemberId());
+            System.out.println("Member Nmae: " + post.getMemberName());
+            System.out.println("Created Date: " + post.getCreatedDate());
+            System.out.println("Updated Date: " + post.getUpdatedDate());
+            System.out.println("----------------------");
+        }
     }
 }

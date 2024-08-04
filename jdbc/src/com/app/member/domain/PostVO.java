@@ -7,6 +7,7 @@ public class PostVO {
 	private String postTitle;
 	private String postContent;
 	private Long memberId;
+	private String memberName;
 	private String createdDate;
 	private String updatedDate;
 	
@@ -43,6 +44,14 @@ public class PostVO {
 	public void setMemberId(Long memberId) {
 		this.memberId = memberId;
 	}
+	
+	public String getMemberName() {
+	      return memberName;
+	}
+
+	public void setMemberName(String memberName) {
+	      this.memberName = memberName;
+	}
 
 	public String getCreatedDate() {
 		return createdDate;
@@ -60,15 +69,18 @@ public class PostVO {
 		this.updatedDate = updateDate;
 	}
 
+	
+
 	@Override
 	public String toString() {
 		return "PostVO [id=" + id + ", postTitle=" + postTitle + ", postContent=" + postContent + ", memberId="
-				+ memberId + ", createDate=" + createdDate + ", updateDate=" + updatedDate + "]";
+				+ memberId + ", memberName=" + memberName + ", createdDate=" + createdDate + ", updatedDate="
+				+ updatedDate + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		return Objects.hash(id, memberId);
 	}
 
 	@Override
@@ -80,7 +92,7 @@ public class PostVO {
 		if (getClass() != obj.getClass())
 			return false;
 		PostVO other = (PostVO) obj;
-		return Objects.equals(id, other.id);
+		return Objects.equals(id, other.id) && Objects.equals(memberId, other.memberId);
 	}
 	
 }

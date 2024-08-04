@@ -1,11 +1,11 @@
-package com.app;
+package com.app.view;
 
 import java.util.ArrayList;
 
 import com.app.member.domain.MemberVO;
 import com.app.member.repository.MemberDAO;
 
-public class App {
+public class MemberDaoTest {
     public static void main(String[] args) {
         MemberDAO memberDAO = new MemberDAO();
 
