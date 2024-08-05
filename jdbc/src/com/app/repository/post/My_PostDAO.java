@@ -1,4 +1,4 @@
-package com.app.member.repository;
+package com.app.repository.post;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,16 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
+import com.app.domain.post.My_PostVO;
 import com.app.jdbc.configuration.Configuration;
-import com.app.member.domain.PostVO;
 
-public class PostDAO {
+public class My_PostDAO {
 	   private Connection connection;
 	   private PreparedStatement preparedStatement;
 	   private ResultSet resultSet;
 //	   추가하기
-	   public void insert(PostVO postVO) {
+	   public void insert(My_PostVO postVO) {
 		   String query = "INSERT INTO TBL_POST "
 		   		+ "(ID, POST_TITLE, POST_CONTENT, MEMBER_ID) "
 		   		+ "VALUES(SEQ_POST.NEXTVAL, ?, ?, ?)";
@@ -46,8 +45,8 @@ public class PostDAO {
 		 }
 	   }
 //	   조회하기
-	   public PostVO select(Long id) {
-		   PostVO postVO = new PostVO();
+	   public My_PostVO select(Long id) {
+		   My_PostVO postVO = new My_PostVO();
 		   String query = "SELECT ID, POST_TITLE, POST_CONTENT, "
 		   		+ "MEMBER_ID, CREATED_DATE, UPDATED_DATE "
 		   		+ "FROM TBL_POST "
@@ -88,7 +87,7 @@ public class PostDAO {
 		   
 	   }
 //	   수정하기
-	   public void update(PostVO postVO) {
+	   public void update(My_PostVO postVO) {
 		   String query = "UPDATE TBL_POST "
 		   		+ "SET POST_TITLE = ?, POST_CONTENT = ?, MEMBER_ID = ? "
 		   		+ "WHERE ID = ?";
@@ -150,9 +149,9 @@ public class PostDAO {
 	   
 	   
 //	   전체 조회하기
-	   public ArrayList<PostVO> selectAll() {
-		    ArrayList<PostVO> posts = new ArrayList<PostVO>();
-		    PostVO postVO = null;
+	   public ArrayList<My_PostVO> selectAll() {
+		    ArrayList<My_PostVO> posts = new ArrayList<My_PostVO>();
+		    My_PostVO postVO = null;
 		    String query = "SELECT P.ID AS POST_ID, POST_TITLE, POST_CONTENT, "
 		                 + "P.MEMBER_ID, M.MEMBER_NAME, P.CREATED_DATE, P.UPDATED_DATE "
 		                 + "FROM TBL_MEMBER M JOIN TBL_POST P "
@@ -166,12 +165,12 @@ public class PostDAO {
 
 		        if(resultSet.next()) {
 		            do {
-		                postVO = new PostVO();
+		                postVO = new My_PostVO();
 		                postVO.setId(resultSet.getLong("POST_ID"));
 		                postVO.setPostTitle(resultSet.getString("POST_TITLE"));
 		                postVO.setPostContent(resultSet.getString("POST_CONTENT"));
 		                postVO.setMemberId(resultSet.getLong("MEMBER_ID"));					   
-		                postVO.setMemberName(resultSet.getString("MEMBER_NAME"));
+//		                postVO.setMemberName(resultSet.getString("MEMBER_NAME"));
 		                postVO.setCreatedDate(resultSet.getString("CREATED_DATE"));
 		                postVO.setUpdatedDate(resultSet.getString("UPDATED_DATE"));
 

@@ -1,4 +1,4 @@
-package com.app.member.repository;
+package com.app.repository.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.app.domain.member.MemberVO;
 import com.app.jdbc.configuration.Configuration;
-import com.app.member.domain.MemberVO;
 
 public class MemberDAO {
    
@@ -64,8 +64,8 @@ public class MemberDAO {
          
          resultSet = preparedStatement.executeQuery();
          
-         resultSet.next();
-         memberVO.setId(resultSet.getLong("ID"));
+         resultSet.next(); // 행 가져오기
+         memberVO.setId(resultSet.getLong("ID")); // 열 가져오기
          memberVO.setMemberEmail(resultSet.getString("MEMBER_EMAIL"));
          memberVO.setMemberPassword(resultSet.getString("MEMBER_PASSWORD"));
          memberVO.setMemberName(resultSet.getString("MEMBER_NAME"));

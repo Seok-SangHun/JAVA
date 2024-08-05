@@ -1,4 +1,4 @@
-package com.app.member.repository;
+package com.app.repository.member;
 
 import java.io.ObjectInputFilter.Config;
 import java.lang.reflect.Array;
@@ -8,8 +8,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.app.domain.member.CompanyVO;
 import com.app.jdbc.configuration.Configuration;
-import com.app.member.domain.CompanyVO;
 
 public class CompanyDAO {
 	private Connection connection;
@@ -20,7 +20,7 @@ public class CompanyDAO {
 	public void insert(CompanyVO companyVO) {
 		String query = "INSERT INTO TBL_COMPANY "
 				+ "(ID, COMAPNY_NAME, COMAPNY_ADDRESS, COMAPNY_TEL, COMAPNY_TYPE) "
-				+ "VALUES(SEQ_COMPANY, ?, ?, ?, ?)";
+				+ "VALUES(SEQ_COMPANY.NEXTVAL, ?, ?, ?, ?)";
 		
 		try {
 			connection = Configuration.getConnection();

@@ -2,12 +2,12 @@ package com.app.view;
 
 import java.util.ArrayList;
 
-import com.app.member.domain.PostVO;
-import com.app.member.repository.PostDAO;
+import com.app.domain.post.My_PostVO;
+import com.app.repository.post.My_PostDAO;
 
 public class PostDAOTest {
     public static void main(String[] args) {
-        PostDAO postDAO = new PostDAO();
+        My_PostDAO postDAO = new My_PostDAO();
         
 //        // Create a new post
 //        PostVO newPost = new PostVO();
@@ -42,14 +42,14 @@ public class PostDAOTest {
 //        System.out.println("Post deleted successfully.");
 //
 //        // Retrieve all posts
-        ArrayList<PostVO> allPosts = postDAO.selectAll();
+        ArrayList<My_PostVO> allPosts = postDAO.selectAll();
         System.out.println("All Posts:");
-        for (PostVO post : allPosts) {
+        for (My_PostVO post : allPosts) {
             System.out.println("ID: " + post.getId());
             System.out.println("Title: " + post.getPostTitle());
             System.out.println("Content: " + post.getPostContent());
             System.out.println("Member ID: " + post.getMemberId());
-            System.out.println("Member Nmae: " + post.getMemberName());
+//            System.out.println("Member Nmae: " + post.getMemberName());
             System.out.println("Created Date: " + post.getCreatedDate());
             System.out.println("Updated Date: " + post.getUpdatedDate());
             System.out.println("----------------------");

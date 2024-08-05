@@ -1,17 +1,17 @@
-package com.app.member.domain;
+package com.app.domain.post;
 
 import java.util.Objects;
 
-public class PostVO {
+public class My_PostVO {
 	private Long id;
 	private String postTitle;
 	private String postContent;
 	private Long memberId;
-	private String memberName;
+//	private String memberName; //VO는 무조건 table과 동일하게 추가되는 건 DTO에 생성
 	private String createdDate;
 	private String updatedDate;
 	
-	public PostVO() {;}
+	public My_PostVO() {;}
 
 	public Long getId() {
 		return id;
@@ -45,13 +45,13 @@ public class PostVO {
 		this.memberId = memberId;
 	}
 	
-	public String getMemberName() {
-	      return memberName;
-	}
-
-	public void setMemberName(String memberName) {
-	      this.memberName = memberName;
-	}
+//	public String getMemberName() {
+//	      return memberName;
+//	}
+//
+//	public void setMemberName(String memberName) {
+//	      this.memberName = memberName;
+//	}
 
 	public String getCreatedDate() {
 		return createdDate;
@@ -74,7 +74,7 @@ public class PostVO {
 	@Override
 	public String toString() {
 		return "PostVO [id=" + id + ", postTitle=" + postTitle + ", postContent=" + postContent + ", memberId="
-				+ memberId + ", memberName=" + memberName + ", createdDate=" + createdDate + ", updatedDate="
+				+ memberId + ", createdDate=" + createdDate + ", updatedDate="
 				+ updatedDate + "]";
 	}
 
@@ -91,7 +91,7 @@ public class PostVO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PostVO other = (PostVO) obj;
+		My_PostVO other = (My_PostVO) obj;
 		return Objects.equals(id, other.id) && Objects.equals(memberId, other.memberId);
 	}
 	

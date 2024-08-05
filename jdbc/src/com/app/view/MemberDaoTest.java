@@ -2,8 +2,8 @@ package com.app.view;
 
 import java.util.ArrayList;
 
-import com.app.member.domain.MemberVO;
-import com.app.member.repository.MemberDAO;
+import com.app.domain.member.MemberVO;
+import com.app.repository.member.MemberDAO;
 
 public class MemberDaoTest {
     public static void main(String[] args) {
